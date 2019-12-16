@@ -1,5 +1,7 @@
 package com.cgt.training.lambdas;
 
+import java.util.function.Consumer;
+
 
 class Sample{
 	/*void conveyMessage(String msg) {
@@ -12,6 +14,13 @@ class Sample{
 }
 
 public class MyApp {
+	// public Greetings ref = msg -> System.out.println("Sent for broadcast : " + msg);
+	
+	
+	public static void fun(String msg) {
+		System.out.println("Testing : " + msg);
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -42,6 +51,42 @@ public class MyApp {
 		
 		// obj.conveyMessage(msg -> System.out.println("Sent for broadcast : " + msg) ,"Hello All");
 		// obj.conveyMessage(System.out::println ,"Hello All");
+		
+		
+		
+		// Greetings ref = new EmailGreeting();
+		
+		// functional interface ref can refer to lanbda expression
+		// Greetings ref = msg -> System.out.println("Sent for broadcast : " + msg);
+		
+		// obj.conveyMessage(ref, "Hello All");
+		
+		Greetings ref = MyApp :: fun;
+		obj.conveyMessage(ref, "Hello All");
+		obj.conveyMessage(MyApp :: fun, "Hello All");
+		
+		// Consumer<String> consumer;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 
