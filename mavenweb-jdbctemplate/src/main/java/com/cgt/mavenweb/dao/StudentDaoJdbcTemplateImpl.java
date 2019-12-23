@@ -27,6 +27,7 @@ public class StudentDaoJdbcTemplateImpl implements StudentDao {
 	public StudentDaoJdbcTemplateImpl(DataSource dataSource) {
 		// TODO Auto-generated constructor stub
 		this.dataSource = dataSource;
+		this.JdbcTemplate = new JdbcTemplate();
 		this.JdbcTemplate.setDataSource(this.dataSource);
 	}
 	
@@ -40,7 +41,13 @@ public class StudentDaoJdbcTemplateImpl implements StudentDao {
 	@Override
 	public Student findById(Integer id) {
 		// TODO Auto-generated method stub
-		Student student = this.JdbcTemplate.queryForObject(this.SQL_FETCH_BY_ID, new Object[] {id}, new StudentRowMapper());
+		Student student = null;
+		try {
+			student = this.JdbcTemplate.queryForObject(this.SQL_FETCH_BY_ID, new Object[] {id}, new StudentRowMapper());
+		}
+		catch(Exception ex) {
+			System.out.println("Student not found!!!");
+		}
 		return student;
 	}
 
