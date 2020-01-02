@@ -16,6 +16,7 @@ import org.springframework.core.env.Environment;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
@@ -23,6 +24,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableWebMvc
+@EnableTransactionManagement
 @ComponentScan("com.cgt.mavenweb")
 @PropertySource("classpath:database.properties")
 public class MyDispatcherServletConfig {
@@ -78,7 +80,7 @@ public class MyDispatcherServletConfig {
 	
 	@Bean
 	@Autowired
-	public HibernateTransactionManager transctionManager(SessionFactory sessionFactory) {
+	public HibernateTransactionManager transactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager txManager = new HibernateTransactionManager();
 		
 		// txManager.setSessionFactory(this.sessionFactory());

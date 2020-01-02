@@ -8,6 +8,17 @@
 </head>
 <body>
 
+<%--
+Presentation connect
+<jsp:include page="header.jsp"/>
+ --%>
+
+<%@include file="header.jsp" %>
+
+
 <h1>Welcome to the world of Spring MVC!!!</h1>
+
+<a href="${pageContext.servletContext.contextPath}/student/all">Get All Students</a>
+
 </body>
 </html>

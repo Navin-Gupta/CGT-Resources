@@ -5,12 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.cgt.mavenweb.entity.Student;
 import com.cgt.mavenweb.facade.StudentDao;
 import com.cgt.mavenweb.facade.StudentService;
 
-@Component
+// @Component
+@Service
 public class StudentServiceActualImpl implements StudentService {
 
 	// dependency on DAO
