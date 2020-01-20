@@ -10,10 +10,11 @@ import com.cgt.catalogservice.model.Movie;
 
 
 @Component
-@FeignClient(name = "movie-service")
+// @FeignClient(name = "movie-service")
+@FeignClient(name = "api-gateway")
 @RibbonClient(name = "movie-service")
 public interface MovieServiceProxy {
 
-	@GetMapping("/movies/{movieId}")
+	@GetMapping("/movie-service/movies/{movieId}")
 	public Movie getMovie(@PathVariable("movieId")Integer movieId);
 }

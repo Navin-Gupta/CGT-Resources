@@ -10,10 +10,11 @@ import com.cgt.catalogservice.model.UserRating;
 
 
 @Component
-@FeignClient(name = "rating-service")
+// @FeignClient(name = "rating-service")
+@FeignClient(name = "api-gateway")
 @RibbonClient(name = "rating-service")
 public interface RatingServiceProxy {
-	@GetMapping("/ratings/{userId}")
+	@GetMapping("/rating-service/ratings/{userId}")
 	public UserRating getRatings(@PathVariable("userId")Integer userId);
 	
 }
